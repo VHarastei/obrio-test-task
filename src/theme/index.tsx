@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { AppProps } from 'next/app';
 
 import CssBaseline from '@mui/material/CssBaseline';
 import { AppCacheProvider } from '@mui/material-nextjs/v14-pagesRouter';
@@ -9,11 +10,13 @@ import { palette, ThemeMode } from './palette';
 import { customShadows } from './custom-shadows';
 import { componentsOverrides } from './overrides';
 
-type Props = {
+interface IProps extends AppProps {
   children: React.ReactNode;
-};
+}
 
-export default function ThemeProvider({ children }: Props) {
+export default function ThemeProvider(props: IProps) {
+  const { children } = props;
+
   const memoizedValue = useMemo(
     () => ({
       typography,
@@ -28,7 +31,7 @@ export default function ThemeProvider({ children }: Props) {
   theme.components = componentsOverrides(theme);
 
   return (
-    <AppCacheProvider>
+    <AppCacheProvider {...props}>
       <MuiThemeProvider theme={theme}>
         <CssBaseline />
         {children}
