@@ -4,6 +4,16 @@ import { alpha } from '@mui/material/styles';
 export type ColorSchema = 'primary' | 'secondary' | 'info' | 'success' | 'warning' | 'error';
 export type ThemeMode = 'light' | 'dark';
 
+declare module '@mui/material/styles/createPalette' {
+  interface Palette {
+    icons: { main: string };
+  }
+
+  interface PaletteOptions {
+    icons?: { main: string };
+  }
+}
+
 export const common = {
   black: '#000000',
   white: '#FFFFFF',
@@ -73,8 +83,11 @@ export function palette(mode: ThemeMode) {
     },
     background: {
       paper: '#FFFFFF',
-      default: '#FFFFFF',
+      default: '#FFF0F0',
       neutral: grey[200],
+    },
+    icons: {
+      main: common.black,
     },
     action: {
       ...base.action,
@@ -92,8 +105,12 @@ export function palette(mode: ThemeMode) {
     },
     background: {
       paper: grey[800],
-      default: grey[900],
+      default:
+        'linear-gradient(165.54deg, #141333 -33.39%, #202261 15.89%, #543C97 55.84%, #6939A2 74.96%)',
       neutral: alpha(grey[500], 0.12),
+    },
+    icons: {
+      main: common.white,
     },
     action: {
       ...base.action,
