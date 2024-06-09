@@ -22,7 +22,7 @@ To start production version, run:
 
 - typed dynamic configuration
 - input types: button, input, select
-- text templates for title/subtitle using Moustashe templating
+- text templates for title/subtitle using Mustashe templating
 - customization: theme, question type
 
 ### Config description
