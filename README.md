@@ -16,7 +16,7 @@ To start production version, run:
 
 - npm build && npm start
 
-## Quesstionnaire
+## Questionnaire
 
 ### Features
 
