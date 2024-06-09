@@ -8,6 +8,9 @@ declare module '@mui/material/styles/createPalette' {
   interface Palette {
     icons: { main: string };
   }
+  interface TypeAction {
+    activeButton: string;
+  }
 
   interface PaletteOptions {
     icons?: { main: string };
@@ -57,6 +60,8 @@ export const action = {
   focus: alpha(grey[500], 0.24),
   hoverOpacity: 0.08,
   disabledOpacity: 0.48,
+  activeButton:
+    'linear-gradient(165.54deg, #141333 -33.39%, #202261 15.89%, #543C97 55.84%, #6939A2 74.96%)',
 };
 
 const base = {

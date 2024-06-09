@@ -1,14 +1,19 @@
+import { useRouter } from 'next/router';
 import { HEADER } from '@layouts/config';
 import LogoSvg from '@components/icons/LogoSvg';
 import ArrowLeftSvg from '@components/icons/ArrowLeftSvg';
 
-import Stack from '@mui/material/Stack';
 import AppBar from '@mui/material/AppBar';
-import { useTheme } from '@mui/material/styles';
 import { Box, IconButton } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
-export function Header() {
+interface IProps {
+  showBackButton?: boolean;
+}
+
+export function Header({ showBackButton }: IProps) {
   const theme = useTheme();
+  const router = useRouter();
 
   return (
     <AppBar
@@ -19,7 +24,6 @@ export function Header() {
         boxShadow: 'none',
         zIndex: theme.zIndex.appBar + 1,
         display: 'flex',
-        alignItems: 'center',
         justifyContent: 'center',
         px: '165px',
         [theme.breakpoints.down('sm')]: {
@@ -28,13 +32,24 @@ export function Header() {
         },
       }}
     >
-      <Stack direction="row" alignItems="center" justifyContent="space-between" width="100%">
-        <IconButton sx={{ p: 0.5 }}>
-          <ArrowLeftSvg sx={{ width: 16, height: 16 }} htmlColor={theme.palette.icons.main} />
-        </IconButton>
-        <LogoSvg sx={{ width: 16, height: 16 }} htmlColor={theme.palette.icons.main} />
-        <Box />
-      </Stack>
+      <Box>
+        {showBackButton && (
+          <IconButton sx={{ p: 0.5 }} onClick={router.back}>
+            <ArrowLeftSvg sx={{ width: 16, height: 16 }} htmlColor={theme.palette.icons.main} />
+          </IconButton>
+        )}
+      </Box>
+      <LogoSvg
+        sx={{
+          width: 16,
+          height: 16,
+          position: 'absolute',
+          left: '50%',
+          top: '50%',
+          transform: 'translate(-50%, -50%)',
+        }}
+        htmlColor={theme.palette.icons.main}
+      />
     </AppBar>
   );
 }

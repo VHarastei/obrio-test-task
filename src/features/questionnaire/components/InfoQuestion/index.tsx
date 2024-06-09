@@ -1,0 +1,1 @@
+export { InfoQuestion } from './InfoQuestion';

@@ -1,17 +1,12 @@
-import { MainLayout } from '@layouts';
-
-import { Button, Typography } from '@mui/material';
+import { useRouter } from 'next/router';
+import { QUESTIONNAIRE_CONFIG } from '@data/config';
 
 export default function Home() {
-  return (
-    <MainLayout>
-      <Typography variant="h1">
-        So we can get to know you better, tell us about your relationship status.
-      </Typography>
+  const router = useRouter();
 
-      <Button color="success" fullWidth>
-        nice
-      </Button>
-    </MainLayout>
-  );
+  const firstQuestion = QUESTIONNAIRE_CONFIG[0];
+
+  router.push(firstQuestion.id);
+
+  return null;
 }

@@ -18,6 +18,7 @@ export function Main({ children }: IProps) {
         minHeight: '100vh',
         background: theme.palette.background.default,
         px: '15px',
+        pb: '15px',
         pt: `${HEADER.H_DESKTOP + 20}px`,
         [theme.breakpoints.down('sm')]: {
           pt: `${HEADER.H_MOBILE + 20}px`,

@@ -57,9 +57,8 @@ export const typography = {
   },
   h5: {
     fontWeight: 700,
-    lineHeight: 1.5,
+    lineHeight: '28px',
     fontSize: pxToRem(18),
-    ...responsiveFontSizes({ sm: 19, md: 20, lg: 20 }),
   },
   h6: {
     fontWeight: 700,
@@ -82,7 +81,7 @@ export const typography = {
     fontSize: pxToRem(16),
   },
   body2: {
-    lineHeight: 22 / 14,
+    lineHeight: '25.2px',
     fontSize: pxToRem(14),
   },
   caption: {
